@@ -1,11 +1,11 @@
 
 <%= form_for [current_user , @prayer_mile] do |f| %>
-<% if prayer_mile.errors.any? %>
+<% if @prayer_mile.errors.any? %>
 
   <div class="alert alert-danger">
-    <h4><%= pluralize(post.errors.count, "error") %>.</h4>
+    <h4><%= pluralize(@prayer_mile.errors.count, "error") %>.</h4>
     <ul>
-      <% post.errors.full_messages.each do |msg| %>
+      <% @prayer_mile.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

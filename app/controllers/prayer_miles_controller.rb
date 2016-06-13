@@ -14,10 +14,11 @@ class PrayerMilesController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = "There was an error saving your distance"
+      render 'new'
     end
   end
 
-  
+
   private
 
   def prayer_params
