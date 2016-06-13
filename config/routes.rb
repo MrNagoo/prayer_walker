@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  resources :users, only: [] do
+    resources :prayer_miles, only: [:new, :create]
+  end
+
+  root 'prayer_miles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

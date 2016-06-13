@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+ body {
+   margin-top: 15px
+ }
+
+ .jumbotron {
+   margin-top: 15px
+ }
+
+.jumbotron p.supersize {
+  font-size: 20vw;
+}

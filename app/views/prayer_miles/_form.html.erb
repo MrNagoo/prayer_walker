@@ -1,0 +1,31 @@
+
+<%= form_for [current_user , @prayer_mile] do |f| %>
+<% if prayer_mile.errors.any? %>
+
+  <div class="alert alert-danger">
+    <h4><%= pluralize(post.errors.count, "error") %>.</h4>
+    <ul>
+      <% post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+<div class="form-group">
+  <div class="col-md-8">
+  <%= f.label :distance %>
+  <%= f.text_field :distance, class: 'form-control' %><br />
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-8">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %><br />
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-6">
+    <%= f.submit "Create Prayer Mile", class: "btn btn-primary"  %>
+  </div>
+</div>
+<% end %>
