@@ -21,6 +21,7 @@
      <% end %>
    </div>
       <%= link_to "home", root_path , :class => 'navbar-link' %>
+       - <%= link_to "about", about_path, class: 'navbar-link' %>
 
    </div>
    <% if flash[:notice] %>
@@ -42,5 +43,12 @@
 
 <%= yield %>
 
+ </div>
 </body>
+
+<footer class="footer">
+  <div class="container">
+    <p class="text-muted">Created by Aaron N. </p>
+  </div>
+</footer>
 </html>

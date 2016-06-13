@@ -1,28 +1,29 @@
 <div class="row">
-<h1>Fallen Timbers Community Church</h1>
-<div class="jumbotron">
-  <h1>Prayer Walking 101</h1>
-  <div class="progress">
-  <div class="progress-bar" role="progressbar" aria-valuenow="<%= PrayerMile.percent_complete %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= PrayerMile.percent_complete %>;">
-    <span class="sr-only"><%= PrayerMile.percent_complete %>% Complete</span>
+  <h1>Fallen Timbers Community Church</h1>
+  <div class="jumbotron">
+    <h1>Prayer Walking 101</h1>
+    <h3>Church Total...</h3>
+    <p class="supersize"><%= @prayer_miles.sum(:distance) %></p>
+    <%= link_to "Add your prayer distance now!", new_user_prayer_mile_path(current_user.id), class: "btn btn-primary btn-lg" %>
   </div>
-</div>
-<div class="pull-left"><h5><%= Date.new(2016,06,12).to_formatted_s(:long) %> </h5></div>
-<div class="pull-right"><h5><%= Date.new(2016,10,12).to_formatted_s(:long) %> </h5></div>
-  <p class="supersize"><%= @prayer_miles.sum(:distance) %></p>
-  <%= link_to "Add your prayer distance now", new_user_prayer_mile_path(current_user.id), class: "btn btn-primary btn-lg" %>
-</div>
-
+  <h2>Time until challenge ends</h2>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="<%= PrayerMile.percent_complete %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= PrayerMile.percent_complete + 1 %>%;">
+      <span class="sr-only"><%= PrayerMile.percent_complete + 1 %>% Complete</span>
+    </div>
+  </div>
+  <div class="pull-left"><h5><%= Date.new(2016,06,12).to_formatted_s(:long) %> </h5></div>
+  <div class="pull-right"><h5><%= Date.new(2016,10,10).to_formatted_s(:long) %> </h5></div>
 </div>
 <div class="row">
-<h1>All Prayer Walks</h1>
-<table class="table">
-<% @prayer_miles.limit(50).each do |prayer| %>
-  <tr>
-    <td> <%= current_user.name %></td>
-    <td> <%= prayer.distance %></td>
-    <td> <%= prayer.description %></td>
-  </tr>
-<% end %>
-</table>
+  <h1>Recent Prayer Walks</h1>
+  <table class="table">
+    <% @prayer_miles.limit(50).each do |prayer| %>
+    <tr>
+      <td> <%= current_user.name %></td>
+      <td> <%= prayer.distance %></td>
+      <td> <%= prayer.description %></td>
+    </tr>
+    <% end %>
+  </table>
 </div>

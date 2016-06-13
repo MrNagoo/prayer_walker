@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/about' => 'welcome#about'
+
   devise_for :users
 
   resources :users, only: [] do
