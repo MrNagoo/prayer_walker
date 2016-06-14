@@ -27,7 +27,7 @@
     </thead>
     <% @prayer_miles.limit(50).each do |prayer| %>
     <tr>
-      <td> <%= current_user.name %></td>
+      <td> <%= prayer.user.name %></td>
       <td> <%= prayer.distance %></td>
       <td> <%= prayer.description %></td>
     </tr>
