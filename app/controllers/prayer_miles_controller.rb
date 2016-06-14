@@ -1,4 +1,6 @@
 class PrayerMilesController < ApplicationController
+
+
   def index
     @prayer_miles = PrayerMile.all
   end
