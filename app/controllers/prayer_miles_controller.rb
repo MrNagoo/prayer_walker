@@ -2,7 +2,7 @@ class PrayerMilesController < ApplicationController
 
 
   def index
-    @prayer_miles = PrayerMile.all
+    @prayer_miles = PrayerMile.all.order(created_at: :desc)
   end
 
   def new
